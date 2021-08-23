@@ -5987,7 +5987,11 @@ textarea.form-control-lg {
 }
 
 .carousel {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  
 }
 
 .carousel.pointer-event {
@@ -6006,6 +6010,10 @@ textarea.form-control-lg {
 }
 
 .carousel-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
   position: relative;
   display: none;
   float: left;
@@ -6138,6 +6146,7 @@ textarea.form-control-lg {
   z-index: 2;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 0;
   margin-right: 15%;
   margin-bottom: 1rem;
@@ -6936,6 +6945,10 @@ textarea.form-control-lg {
 
 .w-25 {
   width: 25% !important;
+}
+
+.w-30{
+  width: 30% !important;
 }
 
 .w-50 {
