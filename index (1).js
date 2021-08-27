@@ -16,6 +16,7 @@ async function getCategoria(params) {
             ctn.appendChild(nombre);
             pokeDiv.appendChild(ctn);
 }
+
 token="APP_USR-3388052911498377-082319-9de407ac14e7aa4b2c735eff7fbfb50d-354069378";
     // Url para Electrónica, Audio y Video
     let urlElectronica = "https://api.mercadolibre.com/highlights/MLM/category/MLM1000?access_token="+token;
@@ -35,8 +36,8 @@ async function getBestSeller(params) {
     console.log(data.content[3].position);
     console.log(data.content[3].type);
     for(const items in data){
-    
-     x = x + `${data.content[items].id}  ${data.content[items].position}  ${data.content[items].position} ` ;
+    console.log(items)
+     x = x + `${data.content[items]}  ${data.content[items].position}  ${data.content[items].position} ` ;
      //productos
      const url1= "https://api.mercadolibre.com/products/"+data.content[items].id;
      const resp1 = await fetch(params);
@@ -52,7 +53,7 @@ async function getBestSeller(params) {
 
 
 }    
-// getCategoria();
+getCategoria();
 
 //   "id": "MLM16068738",
 //   "status": "active",
