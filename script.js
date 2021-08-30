@@ -56,6 +56,7 @@ producto.Add_Product(Pro,promo);
 producto.Add_Product(Pro,promo);
 producto.totalproduct();
 
+
 // json = document.getElementById("json");
 
 console.log(json.innerHTML = "Producto: " + JSON.stringify(producto, undefined, 2));

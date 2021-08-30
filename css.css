@@ -11323,7 +11323,7 @@ textarea.form-control-lg {
 }
 
 header.masthead {
-  
+  position: relative;
   background-color: #ebac00;
   background: linear-gradient(to bottom, rgba(250, 250, 250, 0) 0%, rgba(255, 255, 255, 0.123) 100%), url("https://www.billin.net/blog/wp-content/uploads/2021/06/Im%C3%A1genes-sin-derechos-de-autor.jpeg");
   background-size: cover;
@@ -11345,8 +11345,8 @@ header.masthead h1, header.masthead .h1 {
 }
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 10rem;
-    padding-bottom: 6rem;
+    padding-top: 12rem;
+    padding-bottom: 15rem;
   }
   header.masthead h1, header.masthead .h1 {
     font-size: 3rem;
