@@ -1,5 +1,5 @@
 // token para acceder a los mas vendidos por categoria
-const token="APP_USR-3388052911498377-083022-11413395c874e0192aa65c729bff095e-354069378";
+const token="APP_USR-3388052911498377-090221-a8fb4d6468c89908b9f172bda7796540-354069378";
 // url general para best sellers
 const urlBestSell = "https://api.mercadolibre.com/highlights/MLM/category/"
 // Url para Electrónica, Audio y Video
@@ -16,22 +16,22 @@ let urlProduct="https://api.mercadolibre.com/products/"
 async function getProduct(id){
     let url = urlProduct+id;
     const resp = await fetch(url);
-    const data = await resp.json();
-    console.log(data)   
+    const data = await resp.json(); 
     let products = document.getElementById("products");
     var contenedor = document.createElement("div");
     // contenedor.setAttribute("id", "p" + i);
-    var algunTexto = "Algún texto";
+
     let descr=data.short_description.content
     let producto = `
-    <div class="card" style="width: 18rem; margin-top: 20px;">
+  
+    <div class="card h-100" style="width: 22rem; margin-top: 19px; padding-bottom: 1rem; padding-top: 1rem;">
     <img src="${data.pictures[0].url}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${data.name}</h5>
-            <p class="card-text">${descr.split("\n", 1)}</p>
-            <p class="card-text">${data.buy_box_winner.price} ${data.buy_box_winner.currency_id}</p>
-            <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
-        </div>
+         <div class="card-body">
+                <h5 class="card-title">${data.name}</h5>
+                <p class="card-text">${descr.split("\n", 1)}</p>
+                <p class="card-text">${data.buy_box_winner.price} ${data.buy_box_winner.currency_id}</p>
+                <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
+            </div>
     </div>`;
     contenedor.innerHTML += producto
     products.appendChild(contenedor)
