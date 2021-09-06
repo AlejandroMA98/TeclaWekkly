@@ -45,28 +45,78 @@
             </li>
           
         </ul>
-
+     
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
             <button class="btn btn-warning" type="submit">Buscar</button>
         </form>
+    
 
-        <ul class="navbar-nav  " style="--bs-scroll-height: 100px;">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Inicio de sesión</a>
-                
-            </li>
-            <li class="nav-item">
-              <a href="Carrito.html" style="background-color: rgb(255, 196, 0);" class="btn btn-block"><i class="fas fa-shopping-cart"></i></i></a>
-          </li>
+        <li class="nav-item">
+          <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" href="LogIn.html"><i class="fas fa-user"></i></i></a>
+          <a data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: rgb(255, 196, 0);" class="btn btn-block"><i class="fas fa-shopping-cart"></i></i></a>
+                  <!-- Button trigger modal -->
+        </li>
             
-        </ul>
-
       </div>
     </div>
   </nav>
 
-    
+
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content bg-dark">
+      <div class="modal-header ">
+        <h3 class="modal-title" style="color: white;" id="exampleModalLabel">Tu carrito de compra</h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+              
+
+              <div class="row">
+                <div class="col-sm-12" >
+                  <h5 style="color: white; ">Lista de pedidos</h5>
+                  <div class="row">
+                    <div class="col-4 col-sm-2">
+                      <img style="width: 100px; height: 100px;" src="Imagenes/Logo2.png" alt="">
+                    </div>
+                    <div class="col-2 col-sm-3" style="display: flex; align-items: center; ">
+                      <p style="color: white; text-align: justify;">Caracteristicas de bla bla bla bla bal abla ablab abla abla bal abla alba lba bla</p>
+                    </div>
+                    <div class="col-2 col-sm-2" style="display: flex; align-items: center;">
+                      <p style="color: white;">Cantidad: 1</p>
+                    </div>
+                    <div class="col-2 col-sm-2" style="display: flex; align-items: center;">
+                      <p style="color: white;">Precio: $350</p>
+                    </div>
+                    
+                    <div class="col-0 col-sm-2 nav-item" style="display: flex; align-items: center; justify-content: center;">
+                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-minus"</i></i></a>
+                      <p>.</p>
+                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-plus"></i></i></a>
+                      <p>.</p>
+                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-window-close"></i></i></a>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+              
+            
+      </div>
+      <div class="modal-footer">
+        <p style="color: white;" class="col-sm-1">Total: $350</p>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Comprar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- carrusel -->
 <div style="display: flex; justify-content: center; background-color: #ebac009c;  padding-top: 8rem;">
   <div  id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div  class="carousel-indicators">
@@ -116,7 +166,7 @@
     </div>
   </div>
 
-
+<!-- categorias -->
   <div style="padding-top: 1rem;" class=" bg-dark text-center">
     <div class="container" >
         <h1 style="color: white;" class="my-4">Catálogo de Productos.</h1>
@@ -126,12 +176,12 @@
               
               </div>
 
-            
+            fo
             
         </div>
     </div>
   </div>
-
+<!-- semi-footer -->
       <section class="features-icons bg-dark text-center">
         <div class="container">
             <div class="row">
