@@ -1,5 +1,6 @@
+
 // token para acceder a los mas vendidos por categoria
-const token="APP_USR-3388052911498377-090221-a8fb4d6468c89908b9f172bda7796540-354069378";
+const token="APP_USR-3388052911498377-090619-2e5e072a2f36b49b88db000f06f3c9e1-354069378";
 // url general para best sellers
 const urlBestSell = "https://api.mercadolibre.com/highlights/MLM/category/";
 // Url para Electrónica, Audio y Video
@@ -19,6 +20,7 @@ async function getProduct(id){
     const data = await resp.json(); 
     let products = document.getElementById("products");
     var contenedor = document.createElement("div");
+    console.log(data.id)
     // contenedor.setAttribute("id", "p" + i);
 
     let descr=data.short_description.content
@@ -37,6 +39,14 @@ async function getProduct(id){
     products.appendChild(contenedor)
     
 }
+//Obtener categorias para el navbar en ¡¡¡ construccion 
+async function getCategorias() {
+    let url = params;
+    const resp = await fetch(url);
+    const data = await resp.json();
+    let cont=0
+    
+}
 //Obtener los mas vendidos de ciertas categorias
 async function getBestSeller(params) {
     let url = params;
@@ -53,14 +63,42 @@ async function getBestSeller(params) {
          }    
 }  
 
-    getBestSeller(urlElectronica)
-    getBestSeller(urlCelulares)
-    getBestSeller(urlComputacion)
-    getBestSeller(urlVideojuegos)
+    // getBestSeller(urlElectronica)
+    // getBestSeller(urlCelulares)
+    // getBestSeller(urlComputacion)
+    // getBestSeller(urlVideojuegos)
     
-    async function getPaises() {
-        const result = await fetch('http://localhost:3001/paises');
-        const paises = await result.json();
-        console.log(paises.MX);  
+    // async function getPaises() {
+    //     const result = await fetch('http://localhost:3001/paises');
+    //     const paises = await result.json();
+    //     console.log(paises.MX);  
+    // }
+    // getPaises()
+
+    function hola(){console.log("boton")}
+    
+    async function getProductDetail(id){
+        let url = urlProduct+id;
+        const resp = await fetch(url);
+        const data = await resp.json(); 
+        let products = document.getElementById("products");
+        var contenedor = document.createElement("div");
+        
+        // contenedor.setAttribute("id", "p" + i);
+    
+        let descr=data.short_description.content
+        let producto = `
+      
+        <div class="card h-100" style="width: 22rem; margin-top: 19px; padding-bottom: 1rem; padding-top: 1rem;">
+        <img src="${data.pictures[0].url}" class="card-img-top" alt="...">
+             <div class="card-body">
+                    <h5 class="card-title">${data.name}</h5>
+                    <p class="card-text">${descr}</p>
+                    <p class="card-text">${data.buy_box_winner.price} ${data.buy_box_winner.currency_id}</p>
+                    <a href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
+                </div>
+        </div>`;
+        contenedor.innerHTML += producto
+        products.appendChild(contenedor)
+        
     }
-    getPaises()

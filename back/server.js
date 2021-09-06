@@ -77,3 +77,9 @@ app.delete('/paises/:pais', function (req, res) {
     }
     res.send(db.respuesta);
 })
+
+app.get('/Producto.html', function (req, res) {
+    res.send('Hello World')
+
+    console.log("hola")
+})
