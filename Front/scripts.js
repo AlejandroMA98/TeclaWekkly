@@ -58,3 +58,9 @@ async function getBestSeller(params) {
     getBestSeller(urlComputacion)
     getBestSeller(urlVideojuegos)
     
+    async function getPaises() {
+        const result = await fetch('http://localhost:3001/paises');
+        const paises = await result.json();
+        console.log(paises.MX);  
+    }
+    getPaises()
