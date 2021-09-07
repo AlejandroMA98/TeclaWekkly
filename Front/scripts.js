@@ -20,7 +20,10 @@ async function getProduct(id){
     const data = await resp.json(); 
     let products = document.getElementById("products");
     var contenedor = document.createElement("div");
+
     
+    console.log(data.id)
+
     // contenedor.setAttribute("id", "p" + i);
 
     let descr=data.short_description.content
@@ -67,12 +70,21 @@ async function getBestSeller(params) {
     // getBestSeller(urlCelulares)
     // getBestSeller(urlComputacion)
     // getBestSeller(urlVideojuegos)
+
     async function getProductos() {
         const result = await fetch('http://localhost:3001/paises');
         const productos = await result.json();
         console.log(productos);  
     }
     getPaises()
+=
+    
+    // async function getPaises() {
+    //     const result = await fetch('http://localhost:3001/paises');
+    //     const paises = await result.json();
+    //     console.log(paises.MX);  
+    // }
+    // getPaises()
 
     function hola(){console.log("boton")}
     
@@ -100,5 +112,8 @@ async function getBestSeller(params) {
         contenedor.innerHTML += producto
         products.appendChild(contenedor)
         
+
+
+
     }
 
