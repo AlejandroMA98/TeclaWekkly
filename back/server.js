@@ -27,12 +27,12 @@ app.get('/', function (req, res) {
 })
 
 //Endpoint para obtener paises de la DB
-app.get('/paises',cors(midd.corsOption),function (req, res) {
-    res.send(db.Paises)
+app.get('/Producto',cors(midd.corsOption),function (req, res) {
+    res.send(db.buscaProducto)
 })
 
-app.post('/paises',midd.Autenticar, function (req, res) {
-    if (!req.body.nombre || !req.body.codigo) {
+app.post('/Producto',midd.Autenticar, function (req, res) {
+    if (!req.body.nombre || !req.body.precio) {
         db.respuesta = {
             codigo: 502,
             error: true,
@@ -43,23 +43,23 @@ app.post('/paises',midd.Autenticar, function (req, res) {
             db.respuesta = {
                 codigo: 503,
                 error: true,
-                mensaje: 'País ya registrado'
+                mensaje: 'producto ya registrado'
                 
             }
         } else {
-            db.nuevoPais(req.body.nombre, req.body.codigo)
+            db.nuevoPais(req.body.nombre, req.body.precio)
 
             db.respuesta = {
                 codigo: 200,
                 error: false,
-                mensaje: '¨País creado'
+                mensaje: 'producto creado'
             }
         }
     }
     res.send(db.respuesta)
 })
 
-app.delete('/paises/:pais', function (req, res) {
+app.delete('/Eliminar/:id', function (req, res) {
 
     if (!db.buscaPais(req.params.pais)) {
         db.respuesta = {
@@ -72,8 +72,14 @@ app.delete('/paises/:pais', function (req, res) {
         db.respuesta = {
             codigo: 200,
             error: false,
-            mensaje: '¨País eliminado'
+            mensaje: 'producto eliminado'
         }
     }
     res.send(db.respuesta);
+})
+
+app.get('/Producto.html', function (req, res) {
+    res.send('Hello World')
+
+    console.log("hola")
 })

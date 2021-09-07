@@ -9,6 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/283e7ac55c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/css.css">
+    <script>window.onload=function(){getBestSeller(urlElectronica)
+      getBestSeller(urlCelulares)
+      getBestSeller(urlComputacion)
+      getBestSeller(urlVideojuegos)}</script>
 </head>
 <body>
 
@@ -25,13 +29,13 @@
                   Categoria
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="#">Vehiculos</a></li>
+                  <li><a class="dropdown-item" href="#">Computadoras</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Ropa </a></li>
+                  <li><a class="dropdown-item" href="#">Celulares</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Electrodomesticos </a></li>
+                  <li><a class="dropdown-item" href="#">Videojuegos </a></li>
                   <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Tecnología </a></li>
+                    <li><a class="dropdown-item" href="#">Electronica </a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Moda </a></li
                   <li><hr class="dropdown-divider"></li>
@@ -71,15 +75,42 @@
         <h3 class="modal-title" style="color: white;" id="exampleModalLabel">Tu carrito de compra</h3>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-              
+      <div class="modal-body">       
 
               <div class="row">
                 <div class="col-sm-12" >
-                  <h5 style="color: white; ">Lista de pedidos</h5>
+                  <h5 style="color: white; ">Xbox series x</h5>
                   <div class="row">
                     <div class="col-4 col-sm-2">
-                      <img style="width: 100px; height: 100px;" src="Imagenes/Logo2.png" alt="">
+                      <img style="width: 100px; height: 100px;" src="https://www.sams.com.mx/images/product-images/img_small/980023267s.jpg" alt="">
+                    </div>
+                    <div class="col-2 col-sm-3" style="display: flex; align-items: center; ">
+                      <p style="color: white; text-align: justify;">Caracteristicas de bla bla bla bla bal abla ablab abla abla bal abla alba lba bla</p>
+                    </div>
+                    <div class="col-2 col-sm-2" style="display: flex; align-items: center;">
+                      <p style="color: white;">Cantidad: 1</p>
+                    </div>
+                    <div class="col-2 col-sm-2" style="display: flex; align-items: center;">
+                      <p style="color: white;">Precio: $350</p>
+                    </div>
+                    
+                    <div class="col-0 col-sm-2 nav-item" style="display: flex; align-items: center; justify-content: center;">
+                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-minus"</i></i></a>
+                      <p>.</p>
+                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-plus"></i></i></a>
+                      <p>.</p>
+                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-window-close"></i></i></a>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12" >
+                  <h5 style="color: white; ">Samsung Galaxy M12</h5>
+                  <div class="row">
+                    <div class="col-4 col-sm-2">
+                      <img style="width: 100px; height: 100px;" src="https://m.media-amazon.com/images/I/41Dv1TBuYGS._SL500_.jpg" alt="">
                     </div>
                     <div class="col-2 col-sm-3" style="display: flex; align-items: center; ">
                       <p style="color: white; text-align: justify;">Caracteristicas de bla bla bla bla bal abla ablab abla abla bal abla alba lba bla</p>
@@ -103,13 +134,11 @@
                 </div>
               </div>
              
-              
-            
       </div>
       <div class="modal-footer">
         <p style="color: white;" class="col-sm-1">Total: $350</p>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Comprar</button>
+        <button type="button" style="background-color: rgb(255, 196, 0);" class="btn">Comprar</button>
       </div>
     </div>
   </div>
