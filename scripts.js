@@ -1,6 +1,6 @@
 
 // token para acceder a los mas vendidos por categoria
-const token="APP_USR-8450638099262888-091303-35a9913532e2e8ece9caddd5fa7c428b-575993930";
+const token="APP_USR-8450638099262888-091322-f34bda21a0b3260d26447f2f90c4eb65-575993930";
 // url general para best sellers
 const urlBestSell = "https://api.mercadolibre.com/highlights/MLM/category/";
 // Url para Electrónica, Audio y Video
