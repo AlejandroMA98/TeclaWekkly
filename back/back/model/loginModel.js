@@ -16,4 +16,16 @@ module.exports = class loginsModel {
         }
         
     }
+    async add (user){
+        let result = await sequelize.query("INSERT INTO users([user],email,[password],[name])VALUES('"+user.user+"','"+user.email+"','"+user.password+"','"+user.name+"');");
+        return result;
+    }
+    async list (){
+        let result = await sequelize.query("SELECT * FROM users");
+        return result;
+    }
+    async delete (userdelete){
+        let result = await sequelize.query("DELETE FROM users WHERE [user]='"+userdelete+"';");
+        return result;
+    }
 }

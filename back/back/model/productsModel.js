@@ -9,7 +9,16 @@ module.exports = class productsModel {
         return result;
     }
     async find (productId){
-        let result = await sequelize.query("SELECT * FROM products WHERE id = " + productId);
+        let result = await sequelize.query("SELECT * FROM products WHERE id = " + productId+";");
         return result;
     }
+    async add (product){
+        let result = await sequelize.query("INSERT INTO products(product_name,properties,price)VALUES('"+product.product_name+"','"+product.properties+"',"+product.price+");");
+        return result;
+    }
+    async delete (productId){
+        let result = await sequelize.query("DELETE FROM products WHERE id_product = " + productId+";");
+        return result;
+    }
+
 }
