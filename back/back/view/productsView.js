@@ -14,6 +14,10 @@ module.exports = async (app) => {
         let product = req.body;
         res.send(await productController.addProduct(product));
     });
+    app.patch('/updateproducts',async(req,res) => {
+        let product = req.body;
+        res.send(await productController.updateproduct(product));
+    });
     app.delete('/deleteproduct/:id', async(req,res)=>{
         let productId = req.params.id
         res.send(await productController.deleteproduct(productId));

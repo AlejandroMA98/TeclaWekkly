@@ -13,6 +13,10 @@ module.exports = async (app) => {
     app.get('/users',async(req,res) => {
         res.send(await loginController.listUser());
     });
+    app.patch('/updateUser',async(req,res) => {
+        let updateuser = req.body;
+        res.send(await loginController.updateuser(updateuser));
+    });
     app.delete('/deleteUser/:user', async(req,res)=>{
         let userdelete = req.params.user
         res.send(await loginController.deleteUser(userdelete));

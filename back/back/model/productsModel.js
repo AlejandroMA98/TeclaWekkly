@@ -20,5 +20,9 @@ module.exports = class productsModel {
         let result = await sequelize.query("DELETE FROM products WHERE id_product = " + productId+";");
         return result;
     }
+    async update (product){
+        let result = await sequelize.query("UPDATE products SET product_name = '"+product.product_name+"' WHERE id_product = '"+product.id_product+"';");
+        return result;
+    }
 
 }

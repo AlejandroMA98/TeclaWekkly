@@ -28,4 +28,8 @@ module.exports = class loginsModel {
         let result = await sequelize.query("DELETE FROM users WHERE [user]='"+userdelete+"';");
         return result;
     }
+    async update (updateuser){
+        let result = await sequelize.query("UPDATE users SET [user] = '"+updateuser.user+"' WHERE [name] = '"+updateuser.name+"';");
+        return result;
+    }
 }

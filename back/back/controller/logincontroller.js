@@ -38,3 +38,12 @@ module.exports.deleteUser = async (userdelete) => {
     }
    
 }
+module.exports.updateuser = async (updateUser) => {
+    let response = new loginModel();
+    let data = await response.update(updateUser);
+    if(data){
+        return "Usuario Actualizado papi xdxdxdxd"
+    }else{
+        return "Nel mijo intentalo de nuevo"
+    }
+}

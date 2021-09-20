@@ -31,3 +31,12 @@ module.exports.deleteproduct = async (productId) => {
     }
    
 }
+module.exports.updateproduct = async (product) => {
+    let response = new productsModel();
+    let data = await response.update(product);
+    if(data){
+        return "Producto Actualizado papi xdxdxdxd"
+    }else{
+        return "Nel mijo intentalo de nuevo"
+    }
+}
