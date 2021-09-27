@@ -23,7 +23,7 @@ describe('Testing Login endpoint',()=>{
         .post('/login')
         .end( function(err,res){
             console.log(err);
-            expect(err.body).to.have.property('user');
+            expect(err.body).to.have.property('email');
             console.log(res.body)
         });
     });
