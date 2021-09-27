@@ -1,8 +1,10 @@
 const productController = require('../controller/productsController')
+const midd = require('../middlewares/midd');
 
 module.exports = async (app) => {
-    app.get('/products',async(req,res) => {
+    app.get('/products',midd.middAutentication, async(req,res) => {
         res.send(await productController.listProducts());
+        
     });
 
     app.get('/product/:id',async(req,res) => {

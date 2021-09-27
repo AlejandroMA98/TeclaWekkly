@@ -11,7 +11,6 @@ module.exports.login = async (user) =>{
     }else{
         return "No se encontro usuario"
     }
-    
 }
 module.exports.addUser = async (user) => {
     let response = new loginModel();
