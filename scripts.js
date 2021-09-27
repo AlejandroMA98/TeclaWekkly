@@ -1,6 +1,6 @@
 
 // token para acceder a los mas vendidos por categoria
-const token="APP_USR-8450638099262888-092023-0d684c3ceb5f5014fa9973de638d04f9-575993930";
+const token="APP_USR-8450638099262888-092705-fc6fc920ec1d3aed1bb5b08c714d8f2d-575993930";
 // url general para best sellers
 const urlBestSell = "https://api.mercadolibre.com/highlights/MLM/category/";
 // Url para Electrónica, Audio y Video
@@ -31,7 +31,7 @@ async function getProduct(id){
     <div class="card h-100" style="width: 22rem; margin-top: 19px; padding-bottom: 1rem; padding-top: 1rem;">
     <img src="${data.pictures[0].url}" class="card-img-top" alt="...">
          <div class="card-body">
-                <h5 class="card-title">${data.name}</h5>
+                <h5 class="card-title">${data.id}</h5>
                 <p class="card-text">${descr.split("\n", 1)}</p>
                 <p class="card-text">${data.buy_box_winner.price} ${data.buy_box_winner.currency_id}</p>
                 <a onclick="carrito(${data})" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>

@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/283e7ac55c.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="CSS/css.css">
 </head>
 <body>
@@ -188,16 +189,20 @@
                     body: JSON.stringify(login)
               
                   });
+                  let aqui = await token.text()
                   console.log(login)
-
-                  console.log(token)
+                  console.log(aqui)
                   
                   if(token){
                     let cookie = token;
                     document.cookie = "token = "+cookie+"; max-age = 3600; path = /";
                     localStorage.setItem("token",token);
-                    
+                    // swal('Titulo','Contenido','error');
+                    location.href="/Admin/Bienvenida.html";
                   }
+                  if(!token){
+                      // swal('Titulo','Contenido','error');
+                    }
                 }
               
               </script>
@@ -209,9 +214,5 @@
     </div>
   </div>
 </div>
-
-
-
-
-  </body>
+</body>
 </html>

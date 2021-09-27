@@ -17,7 +17,7 @@ module.exports = class loginsModel {
         
     }
     async add (user){
-        let result = await sequelize.query("INSERT INTO users([user],email,[password],[name])VALUES('"+user.user+"','"+user.email+"','"+user.password+"','"+user.name+"');");
+        let result = await sequelize.query("INSERT INTO users([user],[name],email,[password])VALUES('"+user.user+"','"+user.name+"','"+user.email+"','"+user.password+"');");
         return result;
     }
     async list (){
@@ -25,11 +25,11 @@ module.exports = class loginsModel {
         return result;
     }
     async delete (userdelete){
-        let result = await sequelize.query("DELETE FROM users WHERE [user]='"+userdelete+"';");
+        let result = await sequelize.query("DELETE FROM users WHERE [name]='"+userdelete+"';");
         return result;
     }
     async update (updateuser){
-        let result = await sequelize.query("UPDATE users SET [user] = '"+updateuser.user+"' WHERE [name] = '"+updateuser.name+"';");
+        let result = await sequelize.query("UPDATE users SET [user] = '"+updateuser.user+"',email='"+updateuser.email+"',[password]='"+updateuser.password+"' WHERE [name] = '"+updateuser.name+"';");
         return result;
     }
 }

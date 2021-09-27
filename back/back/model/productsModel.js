@@ -21,7 +21,7 @@ module.exports = class productsModel {
         return result;
     }
     async update (product){
-        let result = await sequelize.query("UPDATE products SET product_name = '"+product.product_name+"' WHERE id_product = '"+product.id_product+"';");
+        let result = await sequelize.query("UPDATE products SET product_name = '"+product.product_name+"',properties='"+product.properties+"',price='"+product.price+"' WHERE id_product = '"+product.id_product+"';");
         return result;
     }
 
