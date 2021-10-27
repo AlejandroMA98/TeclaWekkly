@@ -5,10 +5,13 @@ async function agregarUsuario(){
     password = document.getElementById("password").value;
 
     let add = {user:user, name:name, email:email, password:password};
+
+    let Token = localStorage.getItem("Tokens");
     let response = await fetch('http://localhost:3000/addUser',{
     method: 'POST',
     headers: {
-    'Content-Type' : 'application/json'
+        'Content-Type' : 'application/json',
+        'Authorization': 'Bearer ' + Token
     },
     body: JSON.stringify(add)
 

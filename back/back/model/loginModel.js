@@ -8,12 +8,11 @@ module.exports = class loginsModel {
     async find (user){
         let result = await sequelize.query("SELECT [user],[password],email,[name] FROM users WHERE email = '"+user.email+"' AND [password] = '"+user.password+"';");
         
-        if(user.email == result[0][0].email){
-            
+        if(result!=0){
             return result[0][0]
         }else{
-            return false
-        }
+            return "No se encuentra"
+        }   
         
     }
     async add (user){

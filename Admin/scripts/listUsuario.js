@@ -1,6 +1,14 @@
 
 async function Listpro(){
-    const data = await fetch('http://localhost:3000/users');
+    let Token = localStorage.getItem("Tokens");
+    const data = await fetch('http://localhost:3000/users',{
+        method: 'GET',
+        headers: {
+            'Content-Type' : 'application/json',
+            'Authorization': 'Bearer ' + Token
+        },
+  
+    });
  
     const listaUsuario = await data.json();
     console.log(listaUsuario)

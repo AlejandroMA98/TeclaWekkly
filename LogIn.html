@@ -149,6 +149,7 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
               <h3 class="login-heading mb-4">Bienvenido!</h3>
+              <p id="alerta" style="color: red;"></p>
 
               <!-- Sign In Form -->
               <form id="login">
@@ -176,10 +177,11 @@
               </form>
               <script>
 
-                async function login(){
+                  async function login(){
                   email = document.getElementById("email").value;
                   password = document.getElementById("password").value;
-                  
+                  if(email!="" && password!= ""){
+
                   let login = {email:email, password:password};
                   let token = await fetch('http://localhost:3000/login',{
                     method: 'POST',
@@ -193,16 +195,16 @@
                   console.log(login)
                   console.log(aqui)
                   
-                  if(token){
-                    let cookie = token;
-                    document.cookie = "token = "+cookie+"; max-age = 3600; path = /";
-                    localStorage.setItem("token",token);
-                    // swal('Titulo','Contenido','error');
+                  if(aqui=="No se encontro usuario"){
+                    document.getElementById("alerta").innerHTML = "El usuario no esta registrado"
+                  }else{
+                    localStorage.setItem("Tokens",aqui);
                     location.href="/Admin/Bienvenida.html";
                   }
-                  if(!token){
-                      // swal('Titulo','Contenido','error');
-                    }
+                }else{
+                  document.getElementById("alerta").innerHTML = "Ingresa el email y la contraseña en los campos correspondientes"
+                }
+                   
                 }
               
               </script>
