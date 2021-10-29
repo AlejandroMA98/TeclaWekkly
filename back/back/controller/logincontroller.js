@@ -11,6 +11,15 @@ module.exports.login = async (user) =>{
         return "No se encontro usuario"
     }
 }
+module.exports.register = async (user) => {
+    let response = new loginModel();
+    let data = await response.add(user);
+    if(data){
+        return "Usuario Registrado papi xdxdxdxd"
+    }else{
+        return "Nel mijo intentalo de nuevo"
+    }
+}
 module.exports.addUser = async (user) => {
     let response = new loginModel();
     let data = await response.add(user);
