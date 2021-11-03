@@ -1,195 +1,156 @@
-
-// token para acceder a los mas vendidos por categoria
-const token="APP_USR-8450638099262888-102900-9a1eb02712accce272aa7b00e097588d-575993930";
-// url general para best sellers
-const urlBestSell = "https://api.mercadolibre.com/highlights/MLM/category/";
-// Url para Electrónica, Audio y Video
-let urlElectronica = urlBestSell+"MLM1000?access_token="+token;
-// Url Computacion
-let urlComputacion = urlBestSell+"MLM1648?access_token="+token;
-// Url para Videojuegos
-let urlVideojuegos = urlBestSell+"MLM1144?access_token="+token;
-// Url para Celulares
-let urlCelulares = urlBestSell+"MLM1051?access_token="+token;
-// Url para Api Products
-let urlProduct="https://api.mercadolibre.com/products/"
-//Obtener y mostrar e producto en HTML
-async function getProduct(id){
-    let url = urlProduct+id;
-    const resp = await fetch(url);
-    const data = await resp.json(); 
-    console.log(data)
-    let products = document.getElementById("products");
-    var contenedor = document.createElement("div");
-
-
-    // contenedor.setAttribute("id", "p" + i);
-
-    let descr=data.short_description.content
-    let producto = `
+$(document).ready(() => {
+  $('#ejecutar').on('click', function (event) {
+      event.preventDefault();
+      $('.caja').show();
+      $('.caja2').hide();
+    });
+    $('#ejecutar2').on('click', function (event) {
+      event.preventDefault();
+      $('.caja2').show();
+      $('.caja').hide();
+    });
   
-    <div class="card h-100" style="width: 22rem; margin-top: 19px; padding-bottom: 1rem; padding-top: 1rem;">
-    <img src="${data.pictures[0].url}" class="card-img-top" alt="...">
-         <div class="card-body">
-                <h5 class="card-title">${data.id}</h5>
-                <p class="card-text">${descr.split("\n", 1)}</p>
-                <p class="card-text">${data.buy_box_winner.price} ${data.buy_box_winner.currency_id}</p>
-                <a onclick="carrito(${data})" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
-            </div>
-    </div>`;
-    contenedor.innerHTML += producto
-    products.appendChild(contenedor)
-    
-}
-//Obtener categorias para el navbar en ¡¡¡ construccion 
-async function getCategorias() {
-    let url = params;
-    const resp = await fetch(url);
-    const data = await resp.json();
-    let cont=0
-    
-}
-//Obtener los mas vendidos de ciertas categorias
-async function getBestSeller(params) {
-    let url = params;
-    const resp = await fetch(url);
-    const data = await resp.json();
-    let cont=0
-    for (let i=0; i<data.content.length; i++){
-            if (data.content[i].type=="PRODUCT"){
-                // console.log(data.content[i].id)
-                await getProduct(data.content[i].id);
-                cont++
-            } 
-               if (cont==5)i=data.content.length
-         }    
-}  
+    $('#cart').on('click', function (event) {
+      event.preventDefault();
+      $('#cart-items').show();
+    });
+  
+    $('#close').on('click', function (event) {
+      event.preventDefault();
+      $('#cart-items').hide();
+    });
+  
 
-    getBestSeller(urlElectronica)
-    getBestSeller(urlCelulares)
-    getBestSeller(urlComputacion)
-    getBestSeller(urlVideojuegos)
+  const indexpro = () => {
+      $.ajax({
+          url: `https://api.mercadolibre.com/sites/MLM/search?q=Computación`,
+          type: 'GET',
+          crossDomain: true,
+          datatype: 'json',
+          success: function (response) {
+              for (var i = 0; i <= 11; i++) {
+                  var photo = response.results[i].thumbnail;
+                  console.log(photo);
 
-    async function getProductos() {
-        const result = await fetch('http://localhost:3001/paises');
-        const productos = await result.json();
-        console.log(productos);  
-    }
-    // getPaises()
+                  var titleProduct = response.results[i].title;
+                  var priceProduct = '$' + '' + response.results[i].price;
+                  var template = `
+                  <div class="card h-100 simpleCart_shelfItem" style="width: 22rem; margin-top: 19px; padding-bottom: 1rem; padding-top: 1rem;">
+                       <img class="card-img-top item_image" width="200" height="300"  src="${photo}" alt="...">
+                            <div class="card-body">
+                                   <h5 class="card-title"></h5>
+                                   <p class="card-text item_name">${titleProduct}</p>
+                                   <p class="card-text item_price"">${priceProduct}</p>
+                                   
+                               </div>
+                               <input class="item_Quantity" type="number" min="1" max="10" value="1"/>
+                               <a style="background-color: rgb(255, 196, 0);" class="btn btn-block item_add" href="javascript:;"> Añadir al carrito </a>
+                     </div>`;
 
-    
-    // async function getPaises() {
-    //     const result = await fetch('http://localhost:3001/paises');
-    //     const paises = await result.json();
-    //     console.log(paises.MX);  
-    // }
-    // getPaises()
+                  $('#index').append(template);
+              };
+          }
+      }).done((response) => {
+          console.log(response);
+          console.log(response.results["0"].thumbnail);
+      });
+  }
+  indexpro();
+  
+  const productos1 = () => {
+    $.ajax({
+        url: `https://api.mercadolibre.com/sites/MLM/search?q=Computacion`,
+        type: 'GET',
+        crossDomain: true,
+        datatype: 'json',
+        success: function (response) {
+            for (var i = 0; i <= 20; i++) {
+                var photo = response.results[i].thumbnail;
+                console.log(photo);
 
-    function hola(){console.log("boton")}
-    
-    async function getProductDetail(id){
-        let url = urlProduct+id;
-        const resp = await fetch(url);
-        const data = await resp.json(); 
-        let products = document.getElementById("products");
-        var contenedor = document.createElement("div");
-        
-        // contenedor.setAttribute("id", "p" + i);
-    
-        let descr=data.short_description.content
-        let producto = `
-      
-        <div class="card h-100" style="width: 22rem; margin-top: 19px; padding-bottom: 1rem; padding-top: 1rem;">
-        <img style="width: 100px; height: 100px;" src="${data.pictures[0].url}" class="card-img-top" alt="...">
-             <div class="card-body">
-                    <h5 class="card-title">${data.name}</h5>
-                    <p class="card-text">${descr}</p>
-                    <p class="card-text">${data.buy_box_winner.price} ${data.buy_box_winner.currency_id}</p>
-                    <button onclick="carrito(${data.id})" href="#" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></button>
-                </div>
-        </div>`;
-        contenedor.innerHTML += producto
-        products.appendChild(contenedor)
-        
-    }
+                var titleProduct = response.results[i].title;
+                var priceProduct = '$' + '' + response.results[i].price;
+                var template = `
+                <div class="card" style="width: 18rem; margin-top: 20px;">
+                      <div class="card-body">
+                          <img class="card-img-top" style="width: 10rem;" src="${photo}" alt="Card image cap">
+                          <h5 class="card-title">${titleProduct}</h5>
+                          <p class="card-text">${priceProduct}</p>
+                          <a href="#" class="btn btn-primary" style="background-color:#77a8a8"><i class="fas fa-cart-plus"></i></a>  
+                          <div id="paypal-button"></div>                          
+                      </div>
+                   </div>`;
 
-    async function carrito(id){
-        let url = urlProduct+id;
-        const resp = await fetch(url);
-        const data = await resp.json(); 
-        console.log("hola")
-        if(!data.id||!data.name||!data.buy_box_winner.price){
-            console.log("no hay nada ")
-        }else{
-            if(data.id == id){
-                let products = document.getElementById("car");
-                var contenedor = document.createElement("div");
-                let descr=data.short_description.content
-                let producto = `
-              
-                <div class="row">
-                <div class="col-sm-12" >
-                  <h5 style="color: white; ">${data.name}</h5>
-                  <div class="row">
-                    <div class="col-4 col-sm-2">
-                      <img style="width: 100px; height: 100px;" src="https://www.sams.com.mx/images/product-images/img_small/980023267s.jpg" alt="">
-                    </div>
-                    <div class="col-2 col-sm-3" style="display: flex; align-items: center; ">
-                      <p style="color: white; text-align: justify;">Caracteristicas de bla bla bla bla bal abla ablab abla abla bal abla alba lba bla</p>
-                    </div>
-                    <div class="col-2 col-sm-2" style="display: flex; align-items: center;">
-                      <p style="color: white;">Cantidad: 1</p>
-                    </div>
-                    <div class="col-2 col-sm-2" style="display: flex; align-items: center;">
-                      <p style="color: white;">Precio: $350</p>
-                    </div>
-                    
-                    <div class="col-0 col-sm-2 nav-item" style="display: flex; align-items: center; justify-content: center;">
-                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-minus"</i></i></a>
-                      <p>.</p>
-                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-plus"></i></i></a>
-                      <p>.</p>
-                      <a style="background-color: rgb(255, 196, 0);" class="btn btn-block" ><i class="fa fa-window-close"></i></i></a>
-
-                    </div>
-                  </div>
-                </div>
-              </div>`;
-            
-                contenedor.innerHTML += producto
-                products.appendChild(contenedor)
-            }
+                $('#productos1').append(template);
+            };
         }
-    }
-    
-// async function agregarProducto(Articulo) {
-//     await fetch('http://localhost:3000/cart', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(Articulo)
-//     });
+    }).done((response) => {
+        console.log(response);
+        console.log(response.results["0"].thumbnail);
+    });
+}
+productos1();
+
+const productos = () => {
+    $.ajax({
+        url: `https://api.mercadolibre.com/sites/MLM/search?q=Consolas y Videojuegos`,
+        type: 'GET',
+        crossDomain: true,
+        datatype: 'json',
+        success: function (response) {
+            for (var i = 0; i <= 20; i++) {
+                var photo = response.results[i].thumbnail;
+                console.log(photo);
+
+                var titleProduct = response.results[i].title;
+                var priceProduct = '$' + '' + response.results[i].price;
+                var template = `<div class="card" style="width: 18rem; margin-top: 20px;">
+                      <div class="card-body">
+                          <img class="card-img-top" style="width: 10rem;" src="${photo}" alt="Card image cap">
+                          <h5 class="card-title">${titleProduct}</h5>
+                          <p class="card-text">${priceProduct}</p>
+                          <a href="#" class="btn btn-primary" style="background-color:#77a8a8"><i class="fas fa-cart-plus"></i></a>  
+                          <div id="paypal-button"></div>                          
+                      </div>
+                   </div>`;
+
+                $('#productos2').append(template);
+            };
+        }
+    }).done((response) => {
+        console.log(response);
+        console.log(response.results["0"].thumbnail);
+    });
+}
+productos();
+
+
+});
+
+
+$(document).ready(function($) {
+  
+  $('.carrito-total').click(function() {
  
-// }
-// async function eliminarProducto(id) {
-//     await fetch('http://localhost:3000/cart/'+ id);
-//     const cart = getCart();
-//     return cart
-// }
+    $('.bolsa').slideToggle();
+  });
+
+});
+
+//SIMPLE CART
+simpleCart({
+cartColumns: [
+    { view:'image' , attr:'image', label: "Imagen"}, //obtiene la imagen
+    { attr: "name", label: "Name"}, //obtiene el nombre
+    { view: "currency", attr: "price", label: "Price"},//obtiene el precio
+    { view: "decrement", label: "-"}, //Resta el producto
+    { attr: "quantity", label: "Qty"}, //obtiene la cantidad del producto
+    { view: "increment", label: "+"}, //Suma el producto
+    { view: "currency", attr: "total", label: "SubTotal" },// Obtiene el precio total del producto
+    { view: "remove", text: "Remover", label: false} //Quita o remueve el producto
+],
+
+cartStyle: "table", 
 
 
-
-// let Articulo = {
-//     id:"KIKIww1",
-//     nombre: "Tenis Nike",
-//     cantidad: 1,
-//     precio: 500,
-//     clave:"Una clave para protegernos a todos"
-// }
-
-// agregarProducto(Articulo)
-
-
-
-
+});

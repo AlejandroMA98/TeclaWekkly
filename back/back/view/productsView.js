@@ -27,4 +27,12 @@ module.exports = async (app) => {
         let productId = req.params.id
         res.send(await productController.deleteproduct(productId));
     });
+    app.post('/compra', async(req,res)=>{
+        let product = req.body;
+        res.send(await productController.soldProducts(product));
+    });
+    app.get('/listCompras', async(req,res)=>{
+        let product = req.body;
+        res.send(await productController.listCompras(product));
+    });
 };

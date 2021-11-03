@@ -9,10 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/283e7ac55c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="CSS/css.css">
-    <script>window.onload=function(){getBestSeller(urlElectronica)
-      getBestSeller(urlCelulares)
-      getBestSeller(urlComputacion)
-      getBestSeller(urlVideojuegos)}</script>
+    
 </head>
 <body>
 
@@ -29,24 +26,21 @@
                   Categoria
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="#">Computadoras</a></li>
+                  <li><a class="dropdown-item"  href="Ofertas.html">Computadoras</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Celulares</a></li>
+                  <li><a class="dropdown-item"  href="Ofertas.html">Celulares</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Videojuegos </a></li>
+                  <li><a class="dropdown-item"  href="Ofertas.html">Videojuegos </a></li>
                   <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Electronica </a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Moda </a></li
+                    <li><a class="dropdown-item"  href="Ofertas.html">Electronica </a></li>
+    
                   <li><hr class="dropdown-divider"></li>
                 </ul>
               </li>
             <li class="nav-item">
-                <a class="nav-link" href="Ofertas.html">Ofertas</a>
+                <a class="nav-link" href="Ofertas.html">Productos</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Historial</a>
-            </li>
+            
           
         </ul>
      
@@ -77,18 +71,34 @@
       </div>
       <div class="modal-body">       
 
+        
+         
+          <div style="color: white;" class='carrito'>
             
-              <div id="car"> </div>
-             
-      </div>
+            <p style="color: rgb(255, 255, 255);" class="carrito-total">
+              <span class="simpleCart_quantity">0</span> Productos agregados
+            </p>
+        
+            <div >
+              <div class="simpleCart_items"></div>
+              <div class="opciones">
+                <a style="background-color: rgb(255, 196, 0);"  class="boton simpleCart_empty  btn" href="javascript:void(0)">Vaciar carrito</a>
+              </div>
+            </div>
+        
+          </div>
+        
+        </div>
+       
       <div class="modal-footer">
-        <p style="color: white;" class="col-sm-1">Total: $350</p>
+        <span style="color: white;" class="simpleCart_total">$0.00</span>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" style="background-color: rgb(255, 196, 0);" class="btn">Comprar</button>
+        <button onclick="CompraCarro()" type="button" style="background-color: rgb(255, 196, 0);" class="btn">Comprar</button>
       </div>
     </div>
   </div>
 </div>
+
 
 
     <!-- carrusel -->
@@ -147,9 +157,18 @@
         <h1 style="color: white;" class="my-4">Catálogo de Productos.</h1>
         <div class="row">
            
-              <div  style="display: flex;justify-content: space-between;flex-wrap: wrap;"  id="products">
+              <!-- <div  style="display: flex;justify-content: space-between;flex-wrap: wrap;"  id="products">
               
-              </div>
+              </div> -->
+          
+        
+                <section>
+              
+                    <div  style="display: flex;justify-content: space-between;flex-wrap: wrap;" class="caja" id="index">
+        
+                    </div>
+                 </section>
+           
             
         </div>
     </div>
@@ -186,7 +205,9 @@
     </section>
     
 
-
+    <script src ="/jquery.min.js"></script>
+    <script src="/simpleCart.min.js"></script>
+    <script src="compra.js"></script>
     <script src="scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     </body>

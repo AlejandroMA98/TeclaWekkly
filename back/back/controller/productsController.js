@@ -40,3 +40,19 @@ module.exports.updateproduct = async (product) => {
         return "Nel mijo intentalo de nuevo"
     }
 }
+
+module.exports.soldProducts = async (product) => {
+    let response = new productsModel();
+    let data = await response.sold(product);
+    if(data){
+        return "Ya nos compraron papi :3"
+    }else{
+        return "Nel mijo intentalo de nuevo"
+    }
+}
+
+module.exports.listCompras = async () => {
+    let response = new productsModel();
+    let result = await response.compras();
+    return result;
+}
