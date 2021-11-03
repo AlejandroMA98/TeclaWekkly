@@ -24,7 +24,7 @@ module.exports = async (app) => {
         res.send(await loginController.updateuser(updateuser));
     });
     app.delete('/deleteUser/:name',midd.middAutentication, async(req,res)=>{
-        let userdelete = req.params.user
+        let userdelete = req.params.name
         res.send(await loginController.deleteUser(userdelete));
     });
 
